@@ -1,0 +1,25 @@
+<main class="page-content">
+        <section class="hero" aria-labelledby="users-title">
+            <div>
+                <h1 id="users-title">Usuarios</h1>
+            </div>
+
+        </section>
+
+        <ng-container *ngIf="usuarios$ | async as usuarios">
+            <div class="users-grid" aria-label="Listado de usuarios">
+                <div *ngFor="let usuario of usuarios | slice:0:visibleUsers; trackBy: trackById" class="user-card">
+                    <div class="avatar-wrap">
+                    <img [src]="usuario.avatarUrl" [alt]="usuario.name" />
+                    </div>
+                    <h3>{{ usuario.name }}</h3>
+                    <p class="user-role">{{ usuario.role }}</p>
+                    <button type="button" class="outline-button">Ver Perfil</button>
+                </div>
+            </div>
+
+            <div class="load-more-row" *ngIf="visibleUsers < usuarios.length">
+                <button type="button" class="load-more-button" (click)="loadMore()">Cargar más</button>
+            </div>
+        </ng-container>
+    </main>

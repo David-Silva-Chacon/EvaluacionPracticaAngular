@@ -1,1 +1,215 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+	color-scheme: light;
+	--color-background: #f8f9fb;
+	--color-surface-muted: #f2f4f6;
+	--color-text-primary: #191c1e;
+	--color-text-secondary: #414754;
+	--color-text-muted: #717786;
+	--color-border: #dde2ea;
+	--color-border-strong: #c1c6d7;
+	--color-accent: #0059bb;
+	--color-secondary: #7043c2;
+	--shadow-soft: 0 4px 12px rgba(17, 24, 39, 0.05);
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	background: var(--color-background);
+	color: var(--color-text-primary);
+	font-family: 'Inter', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.material-symbols-outlined {
+	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.page-shell {
+	position: relative;
+	min-height: 100vh;
+	background:
+		radial-gradient(circle at top left, rgba(0, 89, 187, 0.12), transparent 28%),
+		radial-gradient(circle at top right, rgba(105, 67, 194, 0.09), transparent 24%),
+		var(--color-background);
+}
+
+.page-shell::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+	background-size: 84px 84px;
+	opacity: 0.12;
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), transparent 78%);
+}
+
+.topbar {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	backdrop-filter: blur(18px);
+	background: rgba(248, 249, 251, 0.9);
+	border-bottom: 1px solid var(--color-border);
+}
+
+.topbar__inner,
+.page-content,
+.site-footer__inner {
+	width: min(1200px, calc(100% - 3rem));
+	margin: 0 auto;
+}
+
+.topbar__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	padding: 1rem 0;
+}
+
+.brand-row {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.brand {
+	font-size: 1.2rem;
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	color: var(--color-text-primary);
+}
+
+.nav {
+	display: none;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.nav__link {
+	color: var(--color-text-muted);
+	text-decoration: none;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	padding-bottom: 0.35rem;
+	border-bottom: 2px solid transparent;
+	transition: color 150ms ease, border-color 150ms ease;
+}
+
+.nav__link:hover {
+	color: var(--color-text-primary);
+}
+
+.nav__link--active {
+	color: var(--color-accent);
+	border-bottom-color: var(--color-accent);
+}
+
+.outline-button {
+	border: 0;
+	font: inherit;
+	cursor: pointer;
+	transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.page-content {
+	padding: 2.5rem 0 3rem;
+}
+
+.hero {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	margin-bottom: 2rem;
+}
+
+h1 {
+	margin: 0 0 0.65rem;
+	font-size: clamp(2rem, 4vw, 3.1rem);
+	line-height: 1.1;
+	letter-spacing: -0.04em;
+}
+.outline-button {
+	border: 0;
+	font: inherit;
+	cursor: pointer;
+	transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.site-footer {
+	margin-top: 2rem;
+	padding: 1.5rem 0 2.25rem;
+	border-top: 1px solid var(--color-border);
+}
+
+.site-footer__inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.site-footer__brand,
+.site-footer__links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+.site-footer__brand {
+	color: var(--color-text-muted);
+	font-size: 0.9375rem;
+}
+
+.site-footer__brand span:first-child {
+	color: var(--color-text-primary);
+	font-weight: 700;
+}
+
+.site-footer__links {
+	gap: 1.5rem;
+}
+
+.site-footer__links a {
+	color: var(--color-text-muted);
+	text-decoration: none;
+	font-size: 0.875rem;
+	font-weight: 600;
+	transition: color 150ms ease;
+}
+
+.site-footer__links a:hover {
+	color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+	.nav {
+		display: inline-flex;
+	}
+
+	.hero {
+		flex-direction: row;
+		align-items: end;
+		justify-content: space-between;
+	}
+
+	.site-footer__inner {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
