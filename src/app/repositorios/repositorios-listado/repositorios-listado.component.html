@@ -6,14 +6,14 @@
         </section>
 
         <ng-container *ngIf="repositorios$ | async as repositorios">
-            <div class="content-wrapper" [class.with-detail]="selected">
+            <div class="content-wrapper" [class.with-detail]="showDetail">
                 <!-- Left Column: Repositories List -->
                 <section class="repositories-section" aria-label="Listado de repositorios">
                     <div class="repositories-grid">
                         <div *ngFor="let repositorio of repositorios | slice:0:visibleRepositories; trackBy: trackById" class="repository-card">
                             <h3>{{ repositorio.name }}</h3>
                             <p class="repository-description">{{ repositorio.description }}</p>
-                            <button type="button" class="outline-button" >Ver Repositorio</button>
+                            <button type="button" class="outline-button" [routerLink]="['/repositorios', repositorio.id]">Ver Repositorio</button>
                         </div>
                     </div>
 
@@ -22,6 +22,11 @@
                     </div>
                 </section>
 
+                <!-- Right Column: Detail -->
+                <section class="detail-section" *ngIf="showDetail">
+                    <button type="button" class="close-detail-button" (click)="closeDetail()" aria-label="Cerrar detalle">×</button>
+                    <router-outlet></router-outlet>
+                </section>
             </div>
         </ng-container>
     </main>

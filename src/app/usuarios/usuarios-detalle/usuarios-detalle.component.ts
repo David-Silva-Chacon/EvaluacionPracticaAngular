@@ -3,6 +3,7 @@ import { Usuario } from '../Usuario';
 import { Repositorio } from '../../repositorios/Repositorio';
 import { RepositorioService } from '../../repositorios/repositorio.service';
 
+
 @Component({
   selector: 'app-usuarios-detalle',
   templateUrl: './usuarios-detalle.component.html',
@@ -16,6 +17,7 @@ export class UsuariosDetalleComponent implements OnInit {
   private repositorios: Repositorio[] = [];
 
   @Input()
+  
   set usuario(value: Usuario | undefined) {
     this._usuario = value;
     this.filtrarRepositorios();

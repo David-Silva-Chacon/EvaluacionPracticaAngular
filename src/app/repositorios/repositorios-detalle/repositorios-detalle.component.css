@@ -1,0 +1,149 @@
+main {
+	display: block;
+	height: 100%;
+}
+
+.page-content {
+	padding: 0;
+	height: 100%;
+}
+
+.hero {
+	display: none;
+}
+
+.detail-shell {
+	display: flex;
+	justify-content: stretch;
+	height: 100%;
+}
+
+.detail-card {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 2rem;
+	border-radius: 1.25rem;
+	border: 1px solid rgba(193, 198, 215, 0.42);
+	background: rgba(255, 255, 255, 0.93);
+	box-shadow: var(--shadow-soft);
+	overflow-y: auto;
+}
+
+.repository-header {
+	display: flex;
+	flex-direction: column;
+	gap: 0.65rem;
+	padding-bottom: 1.4rem;
+	margin-bottom: 1.2rem;
+	border-bottom: 1px solid rgba(193, 198, 215, 0.42);
+}
+
+.repository-badge {
+	display: inline-flex;
+	align-self: flex-start;
+	padding: 0.35rem 0.75rem;
+	border-radius: 999px;
+	background: rgba(0, 89, 187, 0.08);
+	color: var(--color-secondary);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.repository-header h2 {
+	margin: 0;
+	font-size: 1.5rem;
+	line-height: 1.25;
+	color: var(--color-text-primary);
+}
+
+.repository-description {
+	margin: 0;
+	color: var(--color-text-secondary);
+	line-height: 1.6;
+}
+
+.detail-list {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.detail-row {
+	display: grid;
+	grid-template-columns: minmax(8rem, 11rem) 1fr;
+	gap: 0.75rem;
+	text-align: left;
+	align-items: baseline;
+	padding: 0.85rem 0;
+	border-top: 1px solid rgba(193, 198, 215, 0.42);
+}
+
+.detail-row dt {
+	margin: 0;
+	font-weight: 700;
+	color: var(--color-secondary);
+}
+
+.detail-row dd {
+	margin: 0;
+	color: var(--color-text-primary);
+	word-break: break-word;
+}
+
+.language-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.3rem 0.7rem;
+	border-radius: 999px;
+	background: rgba(112, 67, 194, 0.08);
+	color: var(--color-accent);
+	font-weight: 700;
+}
+
+.owner {
+	color: var(--color-text-primary);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.muted-value {
+	color: var(--color-text-secondary);
+}
+
+.empty-shell {
+	align-items: center;
+	justify-content: center;
+}
+
+.empty-card {
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+	min-height: 22rem;
+}
+
+.empty-card .repository-badge {
+	align-self: center;
+}
+
+.empty-card .repository-description {
+	max-width: 34rem;
+}
+
+@media (max-width: 640px) {
+	.detail-card {
+		padding: 1.5rem;
+	}
+
+	.detail-row {
+		grid-template-columns: 1fr;
+		gap: 0.3rem;
+	}
+
+	.repository-header h2 {
+		font-size: 1.35rem;
+	}
+}

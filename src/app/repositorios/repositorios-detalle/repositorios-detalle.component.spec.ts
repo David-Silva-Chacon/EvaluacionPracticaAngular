@@ -3,21 +3,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { UsuariosListadoComponent } from './usuarios-listado.component';
+import { RepositoriosDetalleComponent } from './repositorios-detalle.component';
 
-describe('UsuariosListadoComponent', () => {
-  let component: UsuariosListadoComponent;
-  let fixture: ComponentFixture<UsuariosListadoComponent>;
+describe('RepositoriosDetalleComponent', () => {
+  let component: RepositoriosDetalleComponent;
+  let fixture: ComponentFixture<RepositoriosDetalleComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ UsuariosListadoComponent ]
+      declarations: [ RepositoriosDetalleComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UsuariosListadoComponent);
+    fixture = TestBed.createComponent(RepositoriosDetalleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

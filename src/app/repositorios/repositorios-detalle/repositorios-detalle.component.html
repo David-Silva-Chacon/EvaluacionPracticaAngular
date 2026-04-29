@@ -1,0 +1,60 @@
+<main class="page-content">
+	@if (isLoading()) {
+		<section class="detail-shell empty-shell" aria-label="Cargando repositorio">
+			<article class="detail-card empty-card">
+				<div class="repository-badge">Repositorio</div>
+				<h2>Cargando repositorio...</h2>
+			</article>
+		</section>
+	} @else if (repositorio(); as repositorio) {
+		<section class="hero" aria-labelledby="repository-detail-title">
+			<div>
+				<h1 id="repository-detail-title">Detalle de repositorio</h1>
+			</div>
+		</section>
+
+		<section class="detail-shell" aria-label="Información del repositorio">
+			<article class="detail-card">
+				<header class="repository-header">
+					<div class="repository-badge">Repositorio</div>
+					<h2>{{ repositorio.name }}</h2>
+					<p class="repository-description">{{ repositorio.description }}</p>
+				</header>
+
+				<dl class="detail-list">
+					<div class="detail-row">
+						<dt>Lenguaje</dt>
+						<dd>
+							<span class="language-pill">{{ repositorio.language }}</span>
+						</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Estrellas</dt>
+						<dd>{{ repositorio.stars }}</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Creado el</dt>
+						<dd>{{ repositorio.createdAt }}</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Owner</dt>
+						<dd>
+							@if (repositorioOwner(); as repositorioOwner) {
+								<a class="owner">{{ repositorioOwner.name }}</a>
+							} @else {
+								<span class="muted-value">Sin owner asignado</span>
+							}
+						</dd>
+					</div>
+				</dl>
+			</article>
+		</section>
+	} @else if (notFound()) {
+		<section class="detail-shell empty-shell" aria-label="Repositorio no disponible">
+			<article class="detail-card empty-card">
+				<div class="repository-badge">Repositorio</div>
+				<h2>No se encontró el repositorio</h2>
+			</article>
+		</section>
+	}
+</main>

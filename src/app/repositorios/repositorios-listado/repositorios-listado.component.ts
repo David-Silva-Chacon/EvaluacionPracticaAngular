@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { RepositorioService } from '../repositorio.service';
 import { Repositorio } from '../Repositorio';
@@ -17,9 +18,11 @@ export class RepositoriosListadoComponent {
   repositorios$!: Observable<Repositorio[]>;
   visibleRepositories = this.initialVisibleRepositories;
 
-  selected: Boolean = false;
-
-  constructor(private repositorioService : RepositorioService) { }
+  constructor(
+    private repositorioService: RepositorioService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
     this.repositorios$ = this.repositorioService.getRepositorios();
@@ -31,6 +34,14 @@ export class RepositoriosListadoComponent {
   
   loadMore() {
     this.visibleRepositories += this.loadMoreStep;
+  }
+
+  get showDetail(): boolean {
+    return /^\/repositorios\/[^/]+$/.test(this.router.url.split('?')[0]);
+  }
+
+  closeDetail(): void {
+    this.router.navigate(['/repositorios']);
   }
 
 }
