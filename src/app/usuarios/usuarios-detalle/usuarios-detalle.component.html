@@ -1,0 +1,44 @@
+<main class="page-content">
+	@if (usuario) {
+		<section class="hero" aria-labelledby="user-detail-title">
+			<div>
+				<h1 id="user-detail-title">Detalle de usuario</h1>
+			</div>
+		</section>
+
+		<section class="detail-shell" aria-label="Perfil de usuario">
+			<article class="detail-card">
+				<div class="avatar-wrap">
+					<img [src]="usuario.avatarUrl" [alt]="usuario.name" />
+				</div>
+
+				<h2>{{ usuario.name }}</h2>
+
+				<dl class="detail-list">
+					<div class="detail-row">
+						<dt>Username</dt>
+						<dd>{{ usuario.username }}</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Nombre</dt>
+						<dd>{{ usuario.name }}</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Email</dt>
+						<dd>
+							<a [href]="'mailto:' + usuario.email">{{ usuario.email }}</a>
+						</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Rol</dt>
+						<dd>{{ usuario.role }}</dd>
+					</div>
+					<div class="detail-row">
+						<dt>Ubicación</dt>
+						<dd>{{ usuario.location }}</dd>
+					</div>
+				</dl>
+			</article>
+		</section>
+	}
+</main>

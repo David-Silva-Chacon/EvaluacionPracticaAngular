@@ -14,7 +14,7 @@
                     </div>
                     <h3>{{ usuario.name }}</h3>
                     <p class="user-role">{{ usuario.role }}</p>
-                    <button type="button" class="outline-button">Ver Perfil</button>
+                    <button type="button" class="outline-button" (click)="onSelected(usuario)">Ver Perfil</button>
                 </div>
             </div>
 
@@ -22,4 +22,8 @@
                 <button type="button" class="load-more-button" (click)="loadMore()">Cargar más</button>
             </div>
         </ng-container>
+
+        <div *ngIf="selected">
+            <app-usuarios-detalle [usuario]="selectedUsuario"></app-usuarios-detalle>
+        </div>
     </main>

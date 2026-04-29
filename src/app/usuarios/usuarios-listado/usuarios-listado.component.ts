@@ -17,6 +17,9 @@ export class UsuariosListadoComponent {
   usuarios$!: Observable<Usuario[]>;
   visibleUsers = this.initialVisibleUsers;
 
+  selectedUsuario!: Usuario;
+  selected: Boolean = false;
+
   constructor(private usuarioService : UsuarioService) {
   }
 
@@ -30,6 +33,11 @@ export class UsuariosListadoComponent {
 
   loadMore() {
     this.visibleUsers += this.loadMoreStep;
+  }
+
+  onSelected(usuario: Usuario): void {
+    this.selected = true;
+    this.selectedUsuario = usuario;
   }
 
 }
