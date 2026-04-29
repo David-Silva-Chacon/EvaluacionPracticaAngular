@@ -38,6 +38,17 @@
 						<dd>{{ usuario.location }}</dd>
 					</div>
 				</dl>
+
+				<section class="repositories-section" *ngIf="usuarioRepositorios.length > 0">
+					<h3>Repositorios</h3>
+					<ul class="repositories-list">
+						<li *ngFor="let repositorio of usuarioRepositorios" class="repository-item">
+							<span class="repo-name">{{ repositorio.name }}</span>
+						</li>
+					</ul>
+				</section>
+
+				<p class="no-repos" *ngIf="usuarioRepositorios.length === 0">No hay repositorios asignados</p>
 			</article>
 		</section>
 	}

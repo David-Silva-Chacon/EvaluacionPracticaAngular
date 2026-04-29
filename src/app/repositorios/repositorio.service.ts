@@ -12,7 +12,7 @@ export class RepositorioService {
   
   constructor(private http: HttpClient) { }
 
-  getUsuarios(): Observable<Repositorio[]> {
+  getRepositorios(): Observable<Repositorio[]> {
     return this.http.get<Repositorio[]>(`${this.apiUrl}/repositories.json`);
   }
 

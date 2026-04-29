@@ -1,0 +1,27 @@
+<main class="page-content">
+        <section class="hero" aria-labelledby="repositories-title">
+            <div>
+                <h1 id="repositories-title">Repositorios</h1>
+            </div>
+        </section>
+
+        <ng-container *ngIf="repositorios$ | async as repositorios">
+            <div class="content-wrapper" [class.with-detail]="selected">
+                <!-- Left Column: Repositories List -->
+                <section class="repositories-section" aria-label="Listado de repositorios">
+                    <div class="repositories-grid">
+                        <div *ngFor="let repositorio of repositorios | slice:0:visibleRepositories; trackBy: trackById" class="repository-card">
+                            <h3>{{ repositorio.name }}</h3>
+                            <p class="repository-description">{{ repositorio.description }}</p>
+                            <button type="button" class="outline-button" >Ver Repositorio</button>
+                        </div>
+                    </div>
+
+                    <div class="load-more-row" *ngIf="visibleRepositories < repositorios.length">
+                        <button type="button" class="load-more-button" (click)="loadMore()">Cargar más</button>
+                    </div>
+                </section>
+
+            </div>
+        </ng-container>
+    </main>

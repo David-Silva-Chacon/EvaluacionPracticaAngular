@@ -96,6 +96,50 @@ h2 {
 	text-decoration: underline;
 }
 
+.repositories-section {
+	width: 100%;
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(193, 198, 215, 0.42);
+	text-align: left;
+}
+
+.repositories-section h3 {
+	margin: 0 0 1rem;
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: var(--color-secondary);
+}
+
+.repositories-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.repository-item {
+	padding: 0.85rem 1rem;
+	border-radius: 0.875rem;
+	border: 1px solid rgba(193, 198, 215, 0.42);
+	background: rgba(112, 67, 194, 0.05);
+	font-weight: 600;
+}
+
+.repo-name {
+	word-break: break-word;
+}
+
+.no-repos {
+	margin: 1.5rem 0 0;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(193, 198, 215, 0.42);
+	color: var(--color-text-secondary);
+	font-style: italic;
+}
+
 @media (max-width: 640px) {
 	.detail-card {
 		padding: 1.5rem;

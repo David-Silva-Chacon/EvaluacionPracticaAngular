@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RepositoriosListadoComponent } from './repositorios-listado/repositorios-listado.component';
 import { AppRoutingModule } from '../app-routing-module';
 
 @NgModule({
@@ -7,7 +8,11 @@ import { AppRoutingModule } from '../app-routing-module';
     CommonModule,
     AppRoutingModule
   ],
-  declarations: [],
-  exports: []
+  declarations: [
+    RepositoriosListadoComponent
+  ],
+  exports: [
+    RepositoriosListadoComponent
+  ]
 })
 export class RepositoriosModule { }
