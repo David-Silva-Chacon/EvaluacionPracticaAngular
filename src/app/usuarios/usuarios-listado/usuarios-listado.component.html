@@ -3,27 +3,33 @@
             <div>
                 <h1 id="users-title">Usuarios</h1>
             </div>
-
         </section>
 
         <ng-container *ngIf="usuarios$ | async as usuarios">
-            <div class="users-grid" aria-label="Listado de usuarios">
-                <div *ngFor="let usuario of usuarios | slice:0:visibleUsers; trackBy: trackById" class="user-card">
-                    <div class="avatar-wrap">
-                    <img [src]="usuario.avatarUrl" [alt]="usuario.name" />
+            <div class="content-wrapper" [class.with-detail]="selected">
+                <!-- Left Column: Users List -->
+                <section class="users-section" aria-label="Listado de usuarios">
+                    <div class="users-grid">
+                        <div *ngFor="let usuario of usuarios | slice:0:visibleUsers; trackBy: trackById" class="user-card">
+                            <div class="avatar-wrap">
+                            <img [src]="usuario.avatarUrl" [alt]="usuario.name" />
+                            </div>
+                            <h3>{{ usuario.name }}</h3>
+                            <p class="user-role">{{ usuario.role }}</p>
+                            <button type="button" class="outline-button" (click)="onSelected(usuario)">Ver Perfil</button>
+                        </div>
                     </div>
-                    <h3>{{ usuario.name }}</h3>
-                    <p class="user-role">{{ usuario.role }}</p>
-                    <button type="button" class="outline-button" (click)="onSelected(usuario)">Ver Perfil</button>
-                </div>
-            </div>
 
-            <div class="load-more-row" *ngIf="visibleUsers < usuarios.length">
-                <button type="button" class="load-more-button" (click)="loadMore()">Cargar más</button>
+                    <div class="load-more-row" *ngIf="visibleUsers < usuarios.length">
+                        <button type="button" class="load-more-button" (click)="loadMore()">Cargar más</button>
+                    </div>
+                </section>
+
+                <!-- Right Column: Detail -->
+                <section class="detail-section" *ngIf="selected">
+                    <button type="button" class="close-detail-button" (click)="closeDetail()" aria-label="Cerrar detalle">×</button>
+                    <app-usuarios-detalle [usuario]="selectedUsuario"></app-usuarios-detalle>
+                </section>
             </div>
         </ng-container>
-
-        <div *ngIf="selected">
-            <app-usuarios-detalle [usuario]="selectedUsuario"></app-usuarios-detalle>
-        </div>
     </main>

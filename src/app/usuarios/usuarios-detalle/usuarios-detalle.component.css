@@ -1,39 +1,25 @@
 main {
 	display: block;
+	height: 100%;
 }
 
 .page-content {
-	padding: 2.5rem 0 3rem;
+	padding: 0;
+	height: 100%;
 }
 
 .hero {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: flex-start;
-	gap: 0;
-	margin-bottom: 2rem;
-	text-align: left;
-}
-
-.hero > div {
-	width: 100%;
-}
-
-h1 {
-	margin: 0 0 0.65rem;
-	font-size: clamp(2rem, 4vw, 3.1rem);
-	line-height: 1.1;
-	letter-spacing: -0.04em;
+	display: none;
 }
 
 .detail-shell {
 	display: flex;
-	justify-content: center;
+	justify-content: stretch;
+	height: 100%;
 }
 
 .detail-card {
-	width: min(100%, 44rem);
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -43,6 +29,7 @@ h1 {
 	border: 1px solid rgba(193, 198, 215, 0.42);
 	background: rgba(255, 255, 255, 0.93);
 	box-shadow: var(--shadow-soft);
+	overflow-y: auto;
 }
 
 .avatar-wrap {

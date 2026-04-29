@@ -11,8 +11,8 @@ import { Usuario } from '../Usuario';
 })
 export class UsuariosListadoComponent {
   
-  readonly initialVisibleUsers = 10;
-  readonly loadMoreStep = 10;
+  readonly initialVisibleUsers = 8;
+  readonly loadMoreStep = 8;
 
   usuarios$!: Observable<Usuario[]>;
   visibleUsers = this.initialVisibleUsers;
@@ -38,6 +38,11 @@ export class UsuariosListadoComponent {
   onSelected(usuario: Usuario): void {
     this.selected = true;
     this.selectedUsuario = usuario;
+  }
+
+  closeDetail(): void {
+    this.selected = false;
+    this.selectedUsuario = null!;
   }
 
 }
